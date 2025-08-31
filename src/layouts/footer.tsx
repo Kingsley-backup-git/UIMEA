@@ -1,11 +1,35 @@
+import { useLocation, useNavigate } from "react-router-dom"
 import Logo from "../assets/logoImg.png"
+
 export default function Footer() {
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  // Handle navigation - if on home page, scroll to section; if on other page, navigate to home then scroll
+  const handleNavigation = (sectionId: string) => {
+    if (location.pathname === "/") {
+      // On home page, scroll to section
+      const element = document.getElementById(sectionId)
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" })
+      }
+    } else {
+      // On other pages, navigate to home then scroll to section
+      navigate("/", { state: { scrollTo: sectionId } })
+    }
+  }
+
+  // Handle logo click - always go to home page
+  const handleLogoClick = () => {
+    navigate("/")
+  }
+
   return (
     <footer className="bg-black text-white py-12">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center gap-2 mb-4 cursor-pointer" onClick={handleLogoClick}>
               <img
                 alt="University of Ibadan Mechanical Engineering Alumni (UIMEA) Logo"
                 loading="lazy"
@@ -71,49 +95,44 @@ export default function Footer() {
             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <a
-                  href="#mission"
-                  className="text-gray-400 hover:text-[#fe6400]"
+                <button
+                  onClick={() => handleNavigation("mission")}
+                  className="text-gray-400 hover:text-[#fe6400] bg-transparent border-none cursor-pointer text-left w-full"
                 >
                   Our Mission
-                </a>
+                </button>
               </li>
               <li>
-                <a
-                  href="#trustees"
-                  className="text-gray-400 hover:text-[#fe6400]"
+                <button
+                  onClick={() => handleNavigation("trustees")}
+                  className="text-gray-400 hover:text-[#fe6400] bg-transparent border-none cursor-pointer text-left w-full"
                 >
                   Trustees
-                </a>
+                </button>
               </li>
               <li>
-                <a
-                  href="#executives"
-                  className="text-gray-400 hover:text-[#fe6400]"
+                <button
+                  onClick={() => handleNavigation("executives")}
+                  className="text-gray-400 hover:text-[#fe6400] bg-transparent border-none cursor-pointer text-left w-full"
                 >
                   Executive Committee
-                </a>
+                </button>
               </li>
               <li>
-                <a
-                  href="#projects"
-                  className="text-gray-400 hover:text-[#fe6400]"
+                <button
+                  onClick={() => handleNavigation("projects")}
+                  className="text-gray-400 hover:text-[#fe6400] bg-transparent border-none cursor-pointer text-left w-full"
                 >
                   Projects
-                </a>
+                </button>
               </li>
               <li>
-                <a
-                  href="#calendar"
-                  className="text-gray-400 hover:text-[#fe6400]"
+                <button
+                  onClick={() => handleNavigation("news")}
+                  className="text-gray-400 hover:text-[#fe6400] bg-transparent border-none cursor-pointer text-left w-full"
                 >
-                  Event Calendar
-                </a>
-              </li>
-              <li>
-                <a href="#news" className="text-gray-400 hover:text-[#fe6400]">
                   Latest News
-                </a>
+                </button>
               </li>
             </ul>
           </div>
@@ -146,7 +165,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a className="text-gray-400 hover:text-[#fe6400]">FAQs</a>
+                <a href="/faq" className="text-gray-400 hover:text-[#fe6400]">FAQs</a>
               </li>
             </ul>
           </div>
@@ -220,15 +239,15 @@ export default function Footer() {
             Association. All rights reserved.
           </p>
           <div className="flex gap-4 mt-4 md:mt-0">
-            <a className="text-gray-400 hover:text-[#fe6400] text-sm">
+            <a href="/privacy-policy" className="text-gray-400 hover:text-[#fe6400] text-sm">
               Privacy Policy
             </a>
-            <a className="text-gray-400 hover:text-[#fe6400] text-sm">
+            <a href="/terms-of-service" className="text-gray-400 hover:text-[#fe6400] text-sm">
               Terms of Service
             </a>
           </div>
         </div>
       </div>
     </footer>
-  );
+  )
 }
