@@ -1,7 +1,7 @@
 import MissionImg from "../assets/missionImg.png"
 export default function Mission() {
   return (
- <section id="mission" className="py-16 bg-white">
+ <section id="mission" className="py-16 bg-white px-6">
                 <div className="container">
                     <div className="flex flex-col md:flex-row gap-12 items-center">
                         <div className="md:w-1/2">

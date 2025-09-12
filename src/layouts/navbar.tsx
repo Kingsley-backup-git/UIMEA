@@ -38,7 +38,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 border-b bg-background bg-white">
-      <div className="container flex h-16 items-center justify-between py-4">
+      <div className="container flex h-16 items-center justify-between py-4 px-6">
         <div className="flex items-center gap-2 cursor-pointer" onClick={handleLogoClick}>
           <img src={Logo} alt="UIMEA Logo" className="h-10 w-10 rounded-full" />
           <span className="text-xl font-bold">UIMEA</span>

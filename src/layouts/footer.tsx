@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import Logo from "../assets/logoImg.png"
 
 export default function Footer() {
@@ -25,7 +25,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-black text-white py-12">
+    <footer className="bg-black px-6 text-white py-12">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
@@ -140,32 +140,32 @@ export default function Footer() {
             <h3 className="text-lg font-bold mb-4">Resources</h3>
             <ul className="space-y-2">
               <li>
-                <a className="text-gray-400 hover:text-[#fe6400]">
+                <Link to="/gallery" className="text-gray-400 hover:text-[#fe6400]">
                   Photo Gallery
-                </a>
+                </Link>
               </li>
-              <li>
-                <a className="text-gray-400 hover:text-[#fe6400]">
+              <li className="pointer-events-none opacity-50">
+                <Link to="/publications" className="text-gray-400  hover:text-[#fe6400]">
                   Publications
-                </a>
+                </Link>
               </li>
-              <li>
+              <li className="pointer-events-none opacity-50">
                 <a className="text-gray-400 hover:text-[#fe6400]">
                   Career Opportunities
                 </a>
               </li>
-              <li>
+              <li className="pointer-events-none opacity-50">
                 <a className="text-gray-400 hover:text-[#fe6400]">
                   Membership Directory
                 </a>
               </li>
-              <li>
-                <a className="text-gray-400 hover:text-[#fe6400]">
+              <li className="pointer-events-none opacity-50">
+                <Link to="/newsletters" className="text-gray-400 hover:text-[#fe6400]">
                   Newsletters
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/faq" className="text-gray-400 hover:text-[#fe6400]">FAQs</a>
+                <Link to ="/faq" className="text-gray-400 hover:text-[#fe6400]">FAQs</Link>
               </li>
             </ul>
           </div>
@@ -239,12 +239,12 @@ export default function Footer() {
             Association. All rights reserved.
           </p>
           <div className="flex gap-4 mt-4 md:mt-0">
-            <a href="/privacy-policy" className="text-gray-400 hover:text-[#fe6400] text-sm">
+            <Link to="/privacy-policy" className="text-gray-400 pointer-event-none opacity-50 hover:text-[#fe6400] text-sm">
               Privacy Policy
-            </a>
-            <a href="/terms-of-service" className="text-gray-400 hover:text-[#fe6400] text-sm">
+            </Link>
+            <Link to="/terms-of-service" className="text-gray-400  pointer-event-none opacity-50 hover:text-[#fe6400] text-sm">
               Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>

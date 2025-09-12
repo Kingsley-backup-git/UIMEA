@@ -5,7 +5,7 @@ import OlorunImg from "../assets/olurunImg.jpg";
 
 export default function Trustees() {
   return (
-    <section id="trustees" className="py-16 bg-white">
+    <section id="trustees" className="py-16 px-6 bg-white">
       <div className="container">
         <h2 className="text-3xl font-bold mb-2 text-center">Our Trustees</h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">

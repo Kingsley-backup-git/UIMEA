@@ -8,7 +8,7 @@ export default function JoinUs() {
 
   const disabled = Object.keys(ApplicationFormik.errors).length > 0 || applicationMutation?.isPending;
   return (
-    <section id="join-us" className="py-16 bg-[#036333] text-white">
+    <section id="join-us" className="py-16 px-6 bg-[#036333] text-white">
       <div className="container">
         <div className="flex flex-col md:flex-row gap-12">
           <div className="md:w-1/2">
@@ -345,7 +345,7 @@ export default function JoinUs() {
                 className={`inline-flex ${
                   disabled
                     ? "bg-[#fe6400] opacity-30 cursor-not-allowed"
-                    : "bg-[#fe6400] hover:bg-[#e05800]"
+                    : "bg-[#fe6400] cursor-pointer hover:bg-[#e05800]"
                 } items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2  [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 h-10 px-4 py-2 w-full  text-white`}
                 type="submit"
                 disabled={disabled}

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Navbar from '../layouts/navbar'
 import Footer from '../layouts/footer'
 import JoinUsModal from '../components/joinUsModal'
+import { Link } from 'react-router-dom';
 
 export default function LearnMore() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -244,12 +245,12 @@ export default function LearnMore() {
                   Complete the membership application form with your details and 
                   engineering background information.
                 </p>
-                <button 
+                {/* <button 
                   onClick={openModal}
                   className="inline-block px-6 py-2 bg-[#fe6400] text-white rounded-md hover:bg-[#e05800] transition-colors cursor-pointer"
                 >
                   Apply Now
-                </button>
+                </button> */}
               </div>
               
               <div className="bg-white p-6 rounded-lg shadow-md text-center">
@@ -261,9 +262,9 @@ export default function LearnMore() {
                   Join our upcoming events, workshops, and networking sessions 
                   to connect with fellow members and industry professionals.
                 </p>
-                <a href="#calendar" className="inline-block px-6 py-2 bg-[#fe6400] text-white rounded-md hover:bg-[#e05800] transition-colors">
+                {/* <a href="#calendar" className="inline-block px-6 py-2 bg-[#fe6400] text-white rounded-md hover:bg-[#e05800] transition-colors">
                   View Calendar
-                </a>
+                </a> */}
               </div>
               
               <div className="bg-white p-6 rounded-lg shadow-md text-center">
@@ -275,9 +276,9 @@ export default function LearnMore() {
                   Share your expertise, participate in projects, and help mentor 
                   the next generation of mechanical engineers.
                 </p>
-                <a href="#projects" className="inline-block px-6 py-2 bg-[#fe6400] text-white rounded-md hover:bg-[#e05800] transition-colors">
+                {/* <a href="#projects" className="inline-block px-6 py-2 bg-[#fe6400] text-white rounded-md hover:bg-[#e05800] transition-colors">
                   View Projects
-                </a>
+                </a> */}
               </div>
             </div>
           </div>
@@ -300,9 +301,9 @@ export default function LearnMore() {
               >
                 Apply for Membership
               </button>
-              <a href="/" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-12 px-6 py-3 border border-white text-white hover:bg-white/10 text-lg">
+              <Link to="/" className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-12 px-6 py-3 border border-white text-white hover:bg-white/10 text-lg">
                 Back to Home
-              </a>
+              </Link>
             </div>
           </div>
         </section>
