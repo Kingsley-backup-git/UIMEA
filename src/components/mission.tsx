@@ -1,8 +1,8 @@
 import MissionImg from "../assets/missionImg.png"
 export default function Mission() {
   return (
- <section id="mission" className="py-16 bg-white sm:px-6 px-3">
-                <div className="sm:container">
+ <section id="mission" className="py-16 bg-white sm:px-6 px-2">
+                <div className="container">
                     <div className="flex flex-col md:flex-row gap-12 items-center">
                         <div className="md:w-1/2">
                             <h2 className="text-3xl font-bold mb-6 text-[#036333]">Our Mission</h2>

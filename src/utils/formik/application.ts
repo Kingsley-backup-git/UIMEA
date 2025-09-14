@@ -33,8 +33,9 @@ function useValidation(doSendMail:(values:membershipProps)=> void) {
       .nullable(),
   }),
     
-    onSubmit: async(values) => {
-       doSendMail(values)
+    onSubmit: async(values, {resetForm}) => {
+        doSendMail(values)
+        resetForm()
     }
     }) 
     

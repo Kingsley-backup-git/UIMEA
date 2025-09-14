@@ -165,7 +165,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to ="/faq" className="text-gray-400 hover:text-[#fe6400]">FAQs</Link>
+                <Link to ="/faq"  className="text-gray-400 hover:text-[#fe6400]">FAQs</Link>
               </li>
             </ul>
           </div>
