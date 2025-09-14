@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Navbar from '../layouts/navbar'
 import Footer from '../layouts/footer'
 
