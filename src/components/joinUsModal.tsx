@@ -8,6 +8,7 @@ interface JoinUsModalProps {
 }
 
 export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
+
   const { doSendMail, applicationMutation } = useMemberShip();
   const { ApplicationFormik } = useValidation(doSendMail);
 

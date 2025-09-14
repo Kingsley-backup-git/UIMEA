@@ -1,10 +1,13 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Navbar from '../layouts/navbar'
 import Footer from '../layouts/footer'
 import JoinUsModal from '../components/joinUsModal'
 import { Link } from 'react-router-dom';
 
 export default function LearnMore() {
+  useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => setIsModalOpen(true);
