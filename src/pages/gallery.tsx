@@ -1,4 +1,4 @@
-import React from 'react'
+import { useEffect } from 'react'
 import Navbar from '../layouts/navbar'
 import Footer from '../layouts/footer'
 import Banner from '../assets/bannerImg.png'
@@ -7,6 +7,11 @@ import PanelImg from '../assets/panelImg.jpg'
 import LectureImg from '../assets/lectureImg.jpg'
 
 export default function Gallery() {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const images = [
     { src: Banner, alt: 'UIMEA Banner' },
     { src: MissionImg, alt: 'Our Mission' },

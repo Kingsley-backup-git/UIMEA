@@ -1,16 +1,15 @@
-import PanelImg from "../assets/panelImg.jpg";
 import LectureImg from "../assets/lectureImg.jpg";
 import { useQuery } from "@tanstack/react-query";
 import { NewsService } from "../services/newsService";
 import { useNavigate } from "react-router-dom";
 export default function News() {
   const navigate = useNavigate()
-  const { data, isSuccess, refetch } = useQuery({
+  const { data, isSuccess, isLoading, isPending } = useQuery({
     queryKey: ["allnews"],
     queryFn: async () => await new NewsService().getNews(),
   });
   return (
-    <section id="news" className="py-16 px-6 bg-gray-50">
+    <section id="news" className="py-16 sm:px-6 px-3 bg-gray-50">
       <div className="container">
         <h2 className="text-3xl font-bold mb-2 text-center">Latest News</h2>
         <p className="text-center text-muted-foreground mb-6 max-w-2xl mx-auto">
@@ -18,6 +17,34 @@ export default function News() {
           announcements.
         </p>
 
+        {/* Loading Placeholder */}
+        {(isLoading || isPending) && (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {Array.from({ length: 3 }).map((_, idx) => (
+              <div
+                key={idx}
+                className="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden animate-pulse"
+              >
+                <div className="h-48 bg-gray-200"></div>
+                <div className="p-6">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="h-4 w-4 bg-gray-200 rounded"></div>
+                    <div className="h-4 w-24 bg-gray-200 rounded"></div>
+                  </div>
+                  <div className="h-6 bg-gray-200 rounded mb-2"></div>
+                  <div className="space-y-2 mb-4">
+                    <div className="h-4 bg-gray-200 rounded"></div>
+                    <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+                    <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+                  </div>
+                  <div className="h-4 w-20 bg-gray-200 rounded"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Empty State */}
         {isSuccess && data?.length === 0 && (
           <div className="text-center py-4 block mx-auto">
             <div className="text-6xl mb-4">📰</div>
@@ -26,9 +53,11 @@ export default function News() {
             </h3>
           </div>
         )}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {isSuccess &&
-            data?.map((item, idx) => {
+
+        {/* News Content */}
+        {isSuccess && data && data.length > 0 && (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {data.map((item: any, idx: number) => {
               return (
                 <div
                   key={item?._id || idx}
@@ -97,7 +126,8 @@ export default function News() {
                 </div>
               );
             })}
-        </div>
+          </div>
+        )}
       </div>
     </section>
   );

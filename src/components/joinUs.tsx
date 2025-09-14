@@ -8,7 +8,7 @@ export default function JoinUs() {
 
   const disabled = Object.keys(ApplicationFormik.errors).length > 0 || applicationMutation?.isPending;
   return (
-    <section id="join-us" className="py-16 px-6 bg-[#036333] text-white">
+    <section id="join-us" className="py-16 sm:px-6 px-2 bg-[#036333] text-white">
       <div className="container">
         <div className="flex flex-col md:flex-row gap-12">
           <div className="md:w-1/2">

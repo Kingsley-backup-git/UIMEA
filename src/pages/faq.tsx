@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Navbar from '../layouts/navbar'
 import Footer from '../layouts/footer'
 import { Link } from 'react-router-dom';
@@ -12,12 +12,38 @@ interface FAQItem {
 export default function FAQ() {
   const [openItems, setOpenItems] = useState<number[]>([]);
 
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const toggleItem = (index: number) => {
     setOpenItems(prev => 
       prev.includes(index) 
         ? prev.filter(item => item !== index)
         : [...prev, index]
     );
+  };
+
+  const handleCategoryClick = (category: string) => {
+    // Find all items in this category and open them
+    const categoryItems = faqData
+      .map((item, idx) => item.category === category ? idx : -1)
+      .filter(idx => idx !== -1);
+    setOpenItems(categoryItems);
+
+    // Scroll to the first item in this category
+    const firstItemIndex = categoryItems[0];
+    if (firstItemIndex !== undefined) {
+      const element = document.getElementById(`faq-item-${firstItemIndex}`);
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start',
+          inline: 'nearest'
+        });
+      }
+    }
   };
 
   const faqData: FAQItem[] = [
@@ -147,12 +173,7 @@ export default function FAQ() {
                     <button
                       key={index}
                       className="px-4 cursor-pointer py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-[#fe6400] hover:text-white transition-colors text-sm font-medium"
-                      onClick={() => {
-                        const categoryItems = faqData
-                          .map((item, idx) => item.category === category ? idx : -1)
-                          .filter(idx => idx !== -1);
-                        setOpenItems(categoryItems);
-                      }}
+                      onClick={() => handleCategoryClick(category)}
                     >
                       {category}
                     </button>
@@ -165,6 +186,7 @@ export default function FAQ() {
                 {faqData.map((item, index) => (
                   <div
                     key={index}
+                    id={`faq-item-${index}`}
                     className="border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
                   >
                     <button

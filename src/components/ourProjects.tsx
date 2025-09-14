@@ -2,7 +2,7 @@ import IndustryImg from "../assets/industryImg.jpg"
 import MentorshipImg from "../assets/mentorshipImg.png"
 export default function OurProjects() {
   return (
-    <section id="projects" className="py-16 px-6 bg-gray-50">
+    <section id="projects" className="py-16 sm:px-6 px-2 bg-gray-50">
       <div className="container">
         <h2 className="text-3xl font-bold mb-2 text-center">Our Projects</h2>
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">

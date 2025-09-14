@@ -3,7 +3,7 @@ import OlugasaImg from "../assets/olugasa.jpeg";
 import WaleImg from "../assets/waleImg.png";
 export default function Executives() {
   return (
-    <section id="executives" className="py-16 px-6 bg-gray-50">
+    <section id="executives" className="py-16 sm:px-6 px-2 bg-gray-50">
       <div className="container">
         <h2 className="text-3xl font-bold mb-2 text-center">
           Executive Committee

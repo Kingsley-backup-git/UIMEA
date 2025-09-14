@@ -1,12 +1,16 @@
-import React from 'react'
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import Navbar from '../layouts/navbar'
 import Footer from '../layouts/footer'
 
 export default function NewsDetails() {
   const navigate = useNavigate()
   const { state } = useLocation() as { state?: { item?: any } }
-  const params = useParams()
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const item = state?.item
 
@@ -79,7 +83,7 @@ export default function NewsDetails() {
                   </div>
                 )}
                 <div className="prose max-w-none text-gray-700">
-                  <p className="whitespace-pre-line text-base md:text-lg leading-relaxed">{item?.description}</p>
+                  <p className="whitespace-pre-line text-base md:text-lg text-sm leading-relaxed">{item?.description}</p>
                 </div>
 
                 {/* {item?.details && (
